@@ -26,6 +26,19 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # Mailer
+  config.action_mailer.delivery_method = :smtp
+    
+  ActionMailer::Base.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'localhost:3000',
+      user_name:            'pokecontag2@gmail.com',
+      password:             'sua_senha',
+      authentication:       'plain',
+      enable_starttls_auto: true  
+  }
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
